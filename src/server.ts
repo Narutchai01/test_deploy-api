@@ -34,5 +34,6 @@ app.get("/getsurveyor", async (req, res) => {
 });
 
 app.listen(PORT, async () => {
+  await connect();
   console.log(`server on http://localhost:${PORT}`);
 });
