@@ -29,13 +29,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/getuser", async (req, res) => {
-  res.send("Hello sur!");
+  try {
+    res.status(200).send("Hello World!");
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 app.get("/getsurveyor", async (req, res) => {
+ try {
   await connect();
   const result: any = await conn?.query("SELECT * FROM Surveyor");
   res.status(200).send(result[0]);
+ } catch (error) {
+  res.status(500).send(error)
+ } 
 });
 
 app.listen(PORT,() => {
