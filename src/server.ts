@@ -28,6 +28,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/getuser", async (req, res) => {
+  res.send("Hello sur!");
+});
+
 app.get("/getsurveyor", async (req, res) => {
   await connect();
   const result: any = await conn?.query("SELECT * FROM Surveyor");
