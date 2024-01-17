@@ -14,6 +14,7 @@ const connect = async () => {
     password: process.env.DBPASS,
     database: process.env.DBNAME,
     port: Number(process.env.DBPORT),
+    connectionLimit: 10,
   });
 };
 
@@ -33,7 +34,6 @@ app.get("/getsurveyor", async (req, res) => {
   res.send(result[0]);
 });
 
-app.listen(PORT, async () => {
-  await connect();
+app.listen(PORT,() => {
   console.log(`server on http://localhost:${PORT}`);
 });
