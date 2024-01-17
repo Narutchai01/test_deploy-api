@@ -35,7 +35,7 @@ app.get("/getuser", async (req, res) => {
 app.get("/getsurveyor", async (req, res) => {
   await connect();
   const result: any = await conn?.query("SELECT * FROM Surveyor");
-  res.send(result[0]);
+  res.status(200).send(result[0]);
 });
 
 app.listen(PORT,() => {
