@@ -1,8 +1,13 @@
 import express from 'express';
 import cors from 'cors';
+import { config } from 'dotenv';
+
+config();
 
 const app = express();
 app.use(cors());
+
+const PORT = process.env.PORT;
 
 
 app.get('/', (req, res) => {
@@ -10,6 +15,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log('server on http://localhost:3000/');
+app.listen(PORT, () => {
+  console.log(`server on http://localhost:${PORT}`);
 });
